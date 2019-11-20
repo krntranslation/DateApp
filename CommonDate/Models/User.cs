@@ -52,6 +52,13 @@ namespace CommonDate.Models
         [Display(Name ="Gender Preference")]
         public string GenderPreference { get; set; }
 
+        [Display(Name = "Upload File")]
+        public string Title { get; set; }
+
+        public string ImagePath { get; set; }
+
+        public HttpPostedFile ImageFile { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

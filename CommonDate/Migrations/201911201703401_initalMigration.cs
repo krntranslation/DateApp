@@ -3,7 +3,7 @@ namespace CommonDate.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialMigration : DbMigration
+    public partial class initalMigration : DbMigration
     {
         public override void Up()
         {
