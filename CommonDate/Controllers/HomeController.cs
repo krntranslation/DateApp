@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommonDate.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +10,26 @@ namespace CommonDate.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext context;
+        public HomeController()
+        {
+            context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
-        }
+            if (User.Identity.GetUserId() == null)
+            {
+                return View();
+            }
+            else
+            {
+                string userId = User.Identity.GetUserId();
+                var user = context.Users.Where(u => u.ApplicationId == userId).FirstOrDefault();
+                return RedirectToAction("Details", "Users", user);
+            }
 
+
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
