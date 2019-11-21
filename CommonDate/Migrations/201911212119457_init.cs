@@ -3,7 +3,7 @@ namespace CommonDate.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initalMigration : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -42,9 +42,10 @@ namespace CommonDate.Migrations
                         City = c.String(nullable: false),
                         StateCode = c.String(nullable: false),
                         Zipcode = c.Int(nullable: false),
-                        PhoneNumber = c.Int(nullable: false),
+                        PhoneNumber = c.String(nullable: false),
                         Gender = c.String(nullable: false),
                         GenderPreference = c.String(nullable: false),
+                        ImagePath = c.String(),
                         ApplicationId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)

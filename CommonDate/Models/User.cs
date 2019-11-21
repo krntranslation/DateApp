@@ -55,16 +55,17 @@ namespace CommonDate.Models
         [Display(Name = "Upload File")]
         public string ImagePath { get; set; }
 
+        [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
-        public User()
-        {
-            ImagePath = "~/Image/";
-        }
+        //public User()
+        //{
+        //    ImagePath = "~/Image/";
+        //}
 
     }
 

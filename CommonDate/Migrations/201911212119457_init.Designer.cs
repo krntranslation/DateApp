@@ -7,13 +7,13 @@ namespace CommonDate.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changedIntToStringPhone : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedIntToStringPhone));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911202240594_changedIntToStringPhone"; }
+            get { return "201911212119457_init"; }
         }
         
         string IMigrationMetadata.Source

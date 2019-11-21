@@ -39,18 +39,19 @@ namespace CommonDate.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            try
-            {
+            //try
+            //{
+            AddImage(user);
                 string id = User.Identity.GetUserId();
                 user.ApplicationId = id;
                 context.Users.Add(user);
                 context.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
                 return View();
-            }
+            //}
         }
 
         // GET: Users/Edit/5
@@ -110,26 +111,30 @@ namespace CommonDate.Controllers
                 return View();
             }
         }
-        //[HttpGet]
-        //public ActionResult AddImage()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult AddImage(User userModel)
-        //{
-        //    string fileName = Path.GetFileNameWithoutExtension(userModel.ImageFile.FileName);
-        //    string extension = Path.GetExtension(userModel.ImageFile.FileName);
-        //    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-        //    userModel.ImagePath = "~/Image/" + fileName;
-        //    fileName = Path.Combine(Server.MapPath("~/Image/"),fileName);
-        //    userModel.ImageFile.SaveAs(fileName);
+        [HttpGet]
+        public ActionResult AddImage()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddImage(User userModel)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(userModel.ImageFile.FileName);
+            string extension = Path.GetExtension(userModel.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            userModel.ImagePath = "~/Image/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+            userModel.ImageFile.SaveAs(fileName);
+            context.Users.Add(userModel);
+            context.SaveChanges();
             
-        //    context.SaveChanges();
-        //    return View();
-        //}
+          
 
-     
+         
+            return View();
+        }
+
+
 
     }
 }
