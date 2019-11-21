@@ -13,7 +13,7 @@ namespace CommonDate.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911201703401_initalMigration"; }
+            get { return "201911202220383_initalMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,6 +1,9 @@
 ﻿using CommonDate.Models;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -22,7 +25,7 @@ namespace CommonDate.Controllers
         public ActionResult Details(int id)
         {
             User user = context.Users.Where(u => u.Id == id).FirstOrDefault();
-            return View();
+            return View(user);
         }
 
         // GET: Users/Create
@@ -107,6 +110,26 @@ namespace CommonDate.Controllers
                 return View();
             }
         }
+        //[HttpGet]
+        //public ActionResult AddImage()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult AddImage(User userModel)
+        //{
+        //    string fileName = Path.GetFileNameWithoutExtension(userModel.ImageFile.FileName);
+        //    string extension = Path.GetExtension(userModel.ImageFile.FileName);
+        //    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+        //    userModel.ImagePath = "~/Image/" + fileName;
+        //    fileName = Path.Combine(Server.MapPath("~/Image/"),fileName);
+        //    userModel.ImageFile.SaveAs(fileName);
+            
+        //    context.SaveChanges();
+        //    return View();
+        //}
+
+     
 
     }
 }

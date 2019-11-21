@@ -42,7 +42,7 @@ namespace CommonDate.Models
 
         [Required]
         [Display(Name ="Phone Number")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
         [Display(Name ="Your Gender")]
@@ -53,16 +53,19 @@ namespace CommonDate.Models
         public string GenderPreference { get; set; }
 
         [Display(Name = "Upload File")]
-        public string Title { get; set; }
-
         public string ImagePath { get; set; }
 
-        public HttpPostedFile ImageFile { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+        public User()
+        {
+            ImagePath = "~/Image/";
+        }
 
     }
+
 }
