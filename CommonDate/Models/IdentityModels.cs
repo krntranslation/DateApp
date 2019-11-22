@@ -21,6 +21,7 @@ namespace CommonDate.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Survey> Surveys { get; set; }
 
 
 

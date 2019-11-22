@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -178,6 +179,10 @@
     <Compile Include="Migrations\201911212119457_init.cs" />
     <Compile Include="Migrations\201911212119457_init.Designer.cs">
       <DependentUpon>201911212119457_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911220104465_addingSurvey.cs" />
+    <Compile Include="Migrations\201911220104465_addingSurvey.Designer.cs">
+      <DependentUpon>201911220104465_addingSurvey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -250,11 +255,13 @@
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\AddImage.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
     <Folder Include="Views\Gender\" />
+    <Folder Include="Views\Survey\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -272,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911212119457_init.resx">
       <DependentUpon>201911212119457_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220104465_addingSurvey.resx">
+      <DependentUpon>201911220104465_addingSurvey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -39,19 +39,19 @@ namespace CommonDate.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            //try
-            //{
-            AddImage(user);
+            try
+            {
+                AddImage(user);
                 string id = User.Identity.GetUserId();
                 user.ApplicationId = id;
                 context.Users.Add(user);
                 context.SaveChanges();
                 return RedirectToAction("Index");
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 return View();
-            //}
+            }
         }
 
         // GET: Users/Edit/5
