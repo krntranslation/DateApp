@@ -78,6 +78,7 @@ namespace CommonDate.Controllers
                 editedUser.PhoneNumber = user.PhoneNumber;
                 editedUser.Gender = user.Gender;
                 editedUser.GenderPreference = user.GenderPreference;
+                editedUser.ImageFile = user.ImageFile;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
