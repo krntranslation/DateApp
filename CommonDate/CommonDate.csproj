@@ -256,12 +256,16 @@
     <Content Include="Views\Users\AddImage.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Survey\Details.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Create.cshtml" />
+    <Content Include="Views\Survey\Edit.cshtml" />
+    <Content Include="Views\Survey\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
     <Folder Include="Views\Gender\" />
-    <Folder Include="Views\Survey\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

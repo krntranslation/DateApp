@@ -21,7 +21,6 @@ namespace CommonDate.Controllers
             Survey survey = context.Surveys.Where(s => s.SurveyId == id).FirstOrDefault();
             return View(survey);
         }
-
         public ActionResult Index()
         {
             return View(context.Surveys.ToList());
@@ -43,15 +42,11 @@ namespace CommonDate.Controllers
                 survey.Id = user.Id;
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
-
-
             }
             catch
             {
-
                 return View();
             }
-
         }
         public ActionResult Edit(int id)
         {
@@ -91,7 +86,6 @@ namespace CommonDate.Controllers
             }
             catch
             {
-
                 return View();
             }
         }
@@ -111,7 +105,6 @@ namespace CommonDate.Controllers
             }
             catch
             {
-
                 return View();
             }
 

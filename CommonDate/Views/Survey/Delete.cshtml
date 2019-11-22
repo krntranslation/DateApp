@@ -1,0 +1,200 @@
+﻿@model CommonDate.Models.Survey
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Survey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoccerGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoccerGames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbaGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbaGames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FootballGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FootballGames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseballGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseballGames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieTheater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieTheater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bowling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bowling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Festivals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Festivals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hiking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hiking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DistilleryTour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistilleryTour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Museums)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Museums)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zoo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zoo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dancing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dancing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicPop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusicPop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicRock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusicRock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicHipHop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusicHipHop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusicCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusicCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodAsian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodAsian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodMexican)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodMexican)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItalian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodItalian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodBurgers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodBurgers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodFineDining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodFineDining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodSteakHouse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodSteakHouse)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<CommonDate.Models.Survey>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoccerGames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbaGames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FootballGames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseballGames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieTheater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bowling)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Festivals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hiking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistilleryTour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Museums)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zoo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dancing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicPop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicRock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicHipHop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusicCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodAsian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodMexican)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodItalian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodBurgers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodFineDining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodSteakHouse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoccerGames)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbaGames)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FootballGames)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseballGames)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieTheater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bowling)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Festivals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hiking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistilleryTour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Museums)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zoo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dancing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicPop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicRock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicHipHop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusicCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodAsian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodMexican)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodItalian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodBurgers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodFineDining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodSteakHouse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
