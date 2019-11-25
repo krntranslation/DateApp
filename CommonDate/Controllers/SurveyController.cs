@@ -94,6 +94,7 @@ namespace CommonDate.Controllers
             Survey survey = context.Surveys.Where(s => s.SurveyId == id).FirstOrDefault();
             return View(survey);
         }
+        [HttpPost]
         public ActionResult Delete(int id, Survey survey)
         {
             try
@@ -109,6 +110,46 @@ namespace CommonDate.Controllers
             }
 
         }
+        public ActionResult GenderMatch()
+        {
+            //User userGender = new User();
+            string UserId = User.Identity.GetUserId();
+            var tempuser = context.Users.Where(u => u.ApplicationId == UserId).FirstOrDefault();
+            var matchZipGender = context.Users.Where(s => s.Gender == tempuser.GenderPreference && s.Zipcode == tempuser.Zipcode).FirstOrDefault();
+            
+            return View();
+        }
+        public ActionResult SurveyComparer()
+        {
+            Survey surveyMatch = new Survey();
+            string idSurvey = User.Identity.GetUserId();
+            var tempSurvey = context.Surveys.Where(u=>u.SurveyId == )
+            return View();
+        }
+        
 
     }
 }
+
+//surveyComparer.BaseballGames = surveyComparer.BaseballGames;
+//            surveyComparer.Bowling = surveyComparer.Bowling;
+//            surveyComparer.Dancing = surveyComparer.Dancing;
+//            surveyComparer.DistilleryTour = surveyComparer.DistilleryTour;
+//            surveyComparer.Festivals = surveyComparer.Festivals;
+//            surveyComparer.FoodAsian = surveyComparer.FoodAsian;
+//            surveyComparer.FoodBurgers = surveyComparer.FoodBurgers;
+//            surveyComparer.FoodFineDining = surveyComparer.FoodFineDining;
+//            surveyComparer.FoodItalian = surveyComparer.FoodItalian;
+//            surveyComparer.FoodMexican = surveyComparer.FoodMexican;
+//            surveyComparer.FoodSteakHouse = surveyComparer.FoodSteakHouse;
+//            surveyComparer.FootballGames = surveyComparer.FootballGames;
+//            surveyComparer.Hiking = surveyComparer.Hiking;
+//            surveyComparer.MovieTheater = surveyComparer.MovieTheater;
+//            surveyComparer.Museums = surveyComparer.Museums;
+//            surveyComparer.MusicCountry = surveyComparer.MusicCountry;
+//            surveyComparer.MusicHipHop = surveyComparer.MusicHipHop;
+//            surveyComparer.MusicPop = surveyComparer.MusicPop;
+//            surveyComparer.MusicRock = surveyComparer.MusicRock;
+//            surveyComparer.NbaGames = surveyComparer.NbaGames;
+//            surveyComparer.SoccerGames = surveyComparer.SoccerGames;
+//            surveyComparer.Zoo = surveyComparer.Zoo;
