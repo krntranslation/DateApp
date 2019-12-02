@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201911220104465_addingSurvey.Designer.cs">
       <DependentUpon>201911220104465_addingSurvey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912021502443_init1.cs" />
+    <Compile Include="Migrations\201912021502443_init1.Designer.cs">
+      <DependentUpon>201912021502443_init1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -288,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911220104465_addingSurvey.resx">
       <DependentUpon>201911220104465_addingSurvey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021502443_init1.resx">
+      <DependentUpon>201912021502443_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

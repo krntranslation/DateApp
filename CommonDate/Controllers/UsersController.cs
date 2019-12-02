@@ -98,14 +98,13 @@ namespace CommonDate.Controllers
 
         // POST: Users/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, User user)
         {
             try
             {
-                User userDelete = context.Users.Where(u => id == id).FirstOrDefault();
+                User userDelete = context.Users.Where(u => u.Id == id).FirstOrDefault();
                 context.Users.Remove(userDelete);
                 context.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             catch

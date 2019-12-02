@@ -110,19 +110,14 @@ namespace CommonDate.Controllers
             }
 
         }
+
         public ActionResult GenderMatch()
-        {
-            User matchedUser = new User();
-            return View();
-        }
-        [HttpPost]
-        public ActionResult GenderMatch(int Id)
         {
             string UserId = User.Identity.GetUserId();
             var tempuser = context.Users.Where(u => u.ApplicationId == UserId).FirstOrDefault();
-            var matchZipGender = context.Users.Where(s => s.Gender == tempuser.GenderPreference && s.Zipcode == tempuser.Zipcode).FirstOrDefault();
-            
-            return View();
+            var matchZipGender = context.Users.Where(s => s.Gender == tempuser.GenderPreference && s.Zipcode == tempuser.Zipcode);
+           
+            return View(matchZipGender);
         }
         public ActionResult SurveyComparer()
         {
