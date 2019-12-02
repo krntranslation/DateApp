@@ -119,11 +119,21 @@ namespace CommonDate.Controllers
            
             return View(matchZipGender);
         }
-        public ActionResult SurveyComparer()
+        public ActionResult SurveyComparer(Survey survey)
         {
-            Survey surveyMatch = new Survey();
             string idSurvey = User.Identity.GetUserId();
-            //surveyMatch = context.Surveys.Where(s=>s.SurveyId == 
+            var tempuser = context.Users.Where(s => s.ApplicationId == idSurvey).FirstOrDefault();
+            var searchResults = context.Surveys.Where(s => s.SurveyId == survey.User.Id);
+            var compareSurvey = context.Surveys.Select(s => s);
+            List<Survey> surveyList = new List<Survey>();
+            foreach (Survey item in surveyList)
+            {
+                if (idSurvey != null)
+                {
+
+                }
+            }
+
             return View();
         }
        
