@@ -112,7 +112,12 @@ namespace CommonDate.Controllers
         }
         public ActionResult GenderMatch()
         {
-            //User userGender = new User();
+            User matchedUser = new User();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult GenderMatch(int Id)
+        {
             string UserId = User.Identity.GetUserId();
             var tempuser = context.Users.Where(u => u.ApplicationId == UserId).FirstOrDefault();
             var matchZipGender = context.Users.Where(s => s.Gender == tempuser.GenderPreference && s.Zipcode == tempuser.Zipcode).FirstOrDefault();
@@ -123,10 +128,11 @@ namespace CommonDate.Controllers
         {
             Survey surveyMatch = new Survey();
             string idSurvey = User.Identity.GetUserId();
-            var tempSurvey = context.Surveys.Where(u=>u.SurveyId == )
+            //surveyMatch = context.Surveys.Where(s=>s.SurveyId == 
             return View();
         }
-        
+       
+	
 
     }
 }
