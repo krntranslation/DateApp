@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CommonDate.Controllers
 {
+    //[Authorize]
     public class SurveyController : Controller
     {
         ApplicationDbContext context;
@@ -119,18 +120,30 @@ namespace CommonDate.Controllers
            
             return View(matchZipGender);
         }
-        public ActionResult SurveyComparer(Survey survey)
+        public ActionResult SurveyComparer(int id)
         {
-            string idSurvey = User.Identity.GetUserId();
-            var tempuser = context.Users.Where(s => s.ApplicationId == idSurvey).FirstOrDefault();
-            var searchResults = context.Surveys.Where(s => s.SurveyId == survey.User.Id);
-            var compareSurvey = context.Surveys.Select(s => s);
+            Survey survey = new Survey();
+            string loggedInUser = User.Identity.GetUserId();
+            var numCount = 0;
+            var tempUser = context.Users.Where(s => s.ApplicationId == loggedInUser).FirstOrDefault();
+            var matchedUser = context.Surveys.Where(s => s.SurveyId == id);
+            foreach (Survey item in matchedUser)
+            {
+                if(survey.BaseballGames == null)
+                {
+                   numCount +=1;
+                }
+            }
+            //var temp = matchedUser.SurveyId.CompareTo(tempUser.ApplicationId);
+            //var compareSurvey = context.Surveys.Select(s => s.SurveyId).FirstOrDefault();
+           
             List<Survey> surveyList = new List<Survey>();
+            int result = surveyList.Sum(l => l.SurveyId);
             foreach (Survey item in surveyList)
             {
-                if (idSurvey != null)
+                if (surveyList != null)
                 {
-
+                    
                 }
             }
 

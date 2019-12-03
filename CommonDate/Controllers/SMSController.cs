@@ -15,6 +15,7 @@ namespace CommonDate.Controllers
 {
     public class SMSController : TwilioController
     {
+
         ApplicationDbContext context;
 
         public SMSController()
@@ -35,7 +36,7 @@ namespace CommonDate.Controllers
             var message = MessageResource.Create(
                 to: to,
                 from: from,
-                body: "Someone has found a match");
+                body: "You not taking your mama out tonight, you got a match!");
             return Content(message.Sid);
 
             return View();
