@@ -166,10 +166,10 @@ namespace CommonDate.Controllers
             var authorApi = APIKeys.eventfulApi;
             string id = User.Identity.GetUserId();
             var user = context.Users.Where(s => s.ApplicationId == id).FirstOrDefault();
-            string url = $" https://community-eventful.p.rapidapi.com/events/search";
+            string url = @"https://community-eventful.p.rapidapi.com/events/search?keywords={events}";
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(url);
-            client.DefaultRequestHeaders.Add("X-Rapidapi-Key", authorApi);
+            client.DefaultRequestHeaders.Add("X-RapidAPI-Key", authorApi);
             HttpResponseMessage response = await client.GetAsync(url);
             string data = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)

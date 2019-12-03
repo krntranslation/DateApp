@@ -15,6 +15,9 @@ namespace CommonDate.Models
         [Display(Name ="Event")]
         public string eventName { get; set; }
 
+        [Display(Name ="Location")]
+        public string location { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Event Time")]

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CommonDate.Models.Event>
+﻿@model CommonDate.Models.Class1[]
 
 @{
     ViewBag.Title = "eventResults";
@@ -12,21 +12,23 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.eventName)
+            @Html.DisplayNameFor(model => Model[0].eventName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventDate)
+            @Html.DisplayNameFor(model => Model[0].location)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Length; i++)
+{
+    <table>
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.eventName)
+            @Html.DisplayFor(model => Model[0].eventName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.eventDate)
+            @Html.DisplayFor(model => Model[0].location)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
@@ -34,6 +36,5 @@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
-}
-
 </table>
+}
