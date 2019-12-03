@@ -33,7 +33,7 @@ namespace CommonDate.Controllers
         public ActionResult Create()
         {
             User users = new User();
-            return View();
+            return View(users);
         }
 
         // POST: Users/Create

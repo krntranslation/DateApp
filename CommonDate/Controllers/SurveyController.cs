@@ -1,8 +1,11 @@
 ﻿using CommonDate.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -139,32 +142,49 @@ namespace CommonDate.Controllers
             }
             //var temp = matchedUser.SurveyId.CompareTo(tempUser.ApplicationId);
             //var compareSurvey = context.Surveys.Select(s => s.SurveyId).FirstOrDefault();
-           
-            
-            int result = surveyList.Sum(l => l.SurveyId);
-            foreach (Survey item in surveyList)
-            {
-                if (surveyList != null)
-                {
-                    
-                }
-            }
+
+
+            //int result = surveyList.Sum(l => l.SurveyId);
+            //foreach (Survey item in surveyList)
+            //{
+            //    if (surveyList != null)
+            //    {
+
+            //    }
+            //}
 
             return View();
         }
-        //public ActionResult SearchEvents()
-        //{
-        //    Events events = new Events();
-        //    return View();
-        //}
-        //[HttpPost]
-        //public async Task<ActionResult> SearchEvents(Events events)
-        //{
+        public ActionResult SearchEvents()
+        {
+            Event events = new Event();
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> SearchEvents(Event events)
+        {
+            var authorApi = APIKeys.eventfulApi;
+            string id = User.Identity.GetUserId();
+            var user = context.Users.Where(s => s.ApplicationId == id).FirstOrDefault();
+            string url = $" https://community-eventful.p.rapidapi.com/events/search";
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(url);
+            client.DefaultRequestHeaders.Add("X-Rapidapi-Key", authorApi);
+            HttpResponseMessage response = await client.GetAsync(url);
+            string data = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                Class1[] eventPlacesList = JsonConvert.DeserializeObject<Class1[]>(data);
+            }
+            return View("eventResults", events);
+        }
+        public ActionResult eventResults(Class1[] eventPlacesList)
+        {
+            return View(eventPlacesList);
+        }
 
-        //}
-      
-       
-	
+
+
 
     }
 }
