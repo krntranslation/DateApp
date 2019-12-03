@@ -11,5 +11,7 @@ namespace CommonDate.Models
 
         public List<Survey> userSurvey { get; set; }
 
+        //public List<Events>searchEvents { get; set; }
+
     }
 }

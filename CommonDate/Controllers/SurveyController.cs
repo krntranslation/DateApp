@@ -124,20 +124,23 @@ namespace CommonDate.Controllers
         {
             Survey survey = new Survey();
             string loggedInUser = User.Identity.GetUserId();
+            var userSurvey = context.Surveys.Select(s => s.SurveyId == id);
             var numCount = 0;
             var tempUser = context.Users.Where(s => s.ApplicationId == loggedInUser).FirstOrDefault();
+           // survey.SurveyId = id;
             var matchedUser = context.Surveys.Where(s => s.SurveyId == id);
+            List<Survey> surveyList = new List<Survey>();
             foreach (Survey item in matchedUser)
             {
-                if(survey.BaseballGames == null)
-                {
-                   numCount +=1;
-                }
+                //if(survey.BaseballGames == null)
+                //{
+                //   numCount +=1;
+                //}
             }
             //var temp = matchedUser.SurveyId.CompareTo(tempUser.ApplicationId);
             //var compareSurvey = context.Surveys.Select(s => s.SurveyId).FirstOrDefault();
            
-            List<Survey> surveyList = new List<Survey>();
+            
             int result = surveyList.Sum(l => l.SurveyId);
             foreach (Survey item in surveyList)
             {
@@ -149,6 +152,17 @@ namespace CommonDate.Controllers
 
             return View();
         }
+        //public ActionResult SearchEvents()
+        //{
+        //    Events events = new Events();
+        //    return View();
+        //}
+        //[HttpPost]
+        //public async Task<ActionResult> SearchEvents(Events events)
+        //{
+
+        //}
+      
        
 	
 

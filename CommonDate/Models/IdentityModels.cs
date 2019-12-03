@@ -22,6 +22,7 @@ namespace CommonDate.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Survey> Surveys { get; set; }
+        public DbSet<Event> Events { get; set; }
 
 
 
