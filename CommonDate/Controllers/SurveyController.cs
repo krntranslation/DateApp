@@ -1,6 +1,7 @@
 ﻿using CommonDate.Models;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,31 +128,12 @@ namespace CommonDate.Controllers
         {
             Survey survey = new Survey();
             string loggedInUser = User.Identity.GetUserId();
-            var userSurvey = context.Surveys.Select(s => s.SurveyId == id);
-            var numCount = 0;
-            var tempUser = context.Users.Where(s => s.ApplicationId == loggedInUser).FirstOrDefault();
-           // survey.SurveyId = id;
-            var matchedUser = context.Surveys.Where(s => s.SurveyId == id);
-            List<Survey> surveyList = new List<Survey>();
-            foreach (Survey item in matchedUser)
-            {
-                //if(survey.BaseballGames == null)
-                //{
-                //   numCount +=1;
-                //}
-            }
-            //var temp = matchedUser.SurveyId.CompareTo(tempUser.ApplicationId);
-            //var compareSurvey = context.Surveys.Select(s => s.SurveyId).FirstOrDefault();
+            var userSurvey = context.Surveys.Where(s => s.SurveyId == id);
 
+            userSurvey.Where(s => s.BaseballGames == true);
 
-            //int result = surveyList.Sum(l => l.SurveyId);
-            //foreach (Survey item in surveyList)
-            //{
-            //    if (surveyList != null)
-            //    {
+            return View(id);
 
-            //    }
-            //}
 
             return View();
         }
@@ -182,6 +164,24 @@ namespace CommonDate.Controllers
         {
             return View(eventPlacesList);
         }
+        public async Task<ActionResult> GeoLocation(int id)
+        {
+            User user = context.Users.Where(u => u.Id == id).FirstOrDefault();
+            string Url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+            string matchAddress = System.Web.HttpUtility.UrlEncode(
+                user.StreetAddress + " " +
+                user.City + " " +
+                user.StateCode + " " +
+                user.Zipcode);
+            string apiKey = "&key="+APIKeys.googleApi;
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync(Url + matchAddress + apiKey);
+            JObject map = JObject.Parse(response);
+            user.lat = (float)map["results"][0]["geometry"]["location"]["lat"];
+            user.lng = (float)map["results"][0]["geometry"]["location"]["lng"];
+
+            return View(user);
+        }
 
 
 
@@ -189,25 +189,3 @@ namespace CommonDate.Controllers
     }
 }
 
-//surveyComparer.BaseballGames = surveyComparer.BaseballGames;
-//            surveyComparer.Bowling = surveyComparer.Bowling;
-//            surveyComparer.Dancing = surveyComparer.Dancing;
-//            surveyComparer.DistilleryTour = surveyComparer.DistilleryTour;
-//            surveyComparer.Festivals = surveyComparer.Festivals;
-//            surveyComparer.FoodAsian = surveyComparer.FoodAsian;
-//            surveyComparer.FoodBurgers = surveyComparer.FoodBurgers;
-//            surveyComparer.FoodFineDining = surveyComparer.FoodFineDining;
-//            surveyComparer.FoodItalian = surveyComparer.FoodItalian;
-//            surveyComparer.FoodMexican = surveyComparer.FoodMexican;
-//            surveyComparer.FoodSteakHouse = surveyComparer.FoodSteakHouse;
-//            surveyComparer.FootballGames = surveyComparer.FootballGames;
-//            surveyComparer.Hiking = surveyComparer.Hiking;
-//            surveyComparer.MovieTheater = surveyComparer.MovieTheater;
-//            surveyComparer.Museums = surveyComparer.Museums;
-//            surveyComparer.MusicCountry = surveyComparer.MusicCountry;
-//            surveyComparer.MusicHipHop = surveyComparer.MusicHipHop;
-//            surveyComparer.MusicPop = surveyComparer.MusicPop;
-//            surveyComparer.MusicRock = surveyComparer.MusicRock;
-//            surveyComparer.NbaGames = surveyComparer.NbaGames;
-//            surveyComparer.SoccerGames = surveyComparer.SoccerGames;
-//            surveyComparer.Zoo = surveyComparer.Zoo;

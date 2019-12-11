@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201912031029073_addinglocation.Designer.cs">
       <DependentUpon>201912031029073_addinglocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912102222238_setGeoLatLng.cs" />
+    <Compile Include="Migrations\201912102222238_setGeoLatLng.Designer.cs">
+      <DependentUpon>201912102222238_setGeoLatLng.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -287,6 +291,8 @@
     <Content Include="Views\Survey\GenderMatch.cshtml" />
     <Content Include="Views\Survey\SearchEvents.cshtml" />
     <Content Include="Views\Survey\eventResults.cshtml" />
+    <Content Include="Views\Survey\SurveyComparer.cshtml" />
+    <Content Include="Views\Survey\GeoLocation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912031029073_addinglocation.resx">
       <DependentUpon>201912031029073_addinglocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912102222238_setGeoLatLng.resx">
+      <DependentUpon>201912102222238_setGeoLatLng.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

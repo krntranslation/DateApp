@@ -52,14 +52,14 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        @*<td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <td>
@@ -89,11 +89,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.ApplicationId)
         </td>*@
-        <td>
-            @Html.ActionLink("Check Compatibility", "SurveyComparer", new { id=item.Id }) 
-
-        </td>
-    </tr>
+    <td>
+        @Html.ActionLink("Check Compatibility", "SurveyComparer", new { id = item.Id })
+    </td>
+    <td>
+        @Html.ActionLink("See Location", "GeoLocation", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>

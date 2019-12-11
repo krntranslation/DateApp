@@ -58,6 +58,10 @@ namespace CommonDate.Models
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
+        public float lat { get; set; }
+
+        public float lng { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

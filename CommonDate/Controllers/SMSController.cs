@@ -31,12 +31,14 @@ namespace CommonDate.Controllers
             TwilioClient.Init(accountSid, authToken);
 
             var to = new PhoneNumber("+1" + user.PhoneNumber);
-            var from = new PhoneNumber("+17736239204");
+            var userOnline = User.Identity.GetUserId();
+           
+            var from = new PhoneNumber("+1" + user.PhoneNumber);//matched user
 
             var message = MessageResource.Create(
                 to: to,
                 from: from,
-                body: "You not taking your mama out tonight, you got a match!");
+                body: "Hello you got a matched user, would you like to go somewhere");
             return Content(message.Sid);
 
             return View();
